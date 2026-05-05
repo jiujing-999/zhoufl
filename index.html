@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>5月30日 · 婚礼当天行程</title>
+<style>
+  :root{
+    --red:#6B0F1A;          /* 主暗红 */
+    --red-deep:#4A0A12;     /* 更深 */
+    --red-wine:#8B1A26;     /* 酒红高光 */
+    --red-soft:#EBD3D6;
+    --red-bg:#FBF3F4;
+    --gold:#B8924A;         /* 中性金 */
+    --gold-deep:#8C6A2E;    /* 暗金 */
+    --gold-light:#D4B373;   /* 亮金 */
+    --gold-soft:#EAD9B4;
+    --ivory:#FBF6EE;        /* 偏暖象牙 */
+    --ink:#2A1A14;
+    --ink-2:#544038;
+    --muted:#998878;
+    --line:#E8DBC4;
+    --card:#FFFDF8;
+    --shadow:0 4px 24px -10px rgba(74,10,18,.22);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(900px 500px at 50% -200px, rgba(107,15,26,.18) 0%, transparent 70%),
+      linear-gradient(180deg, var(--ivory) 0%, #F6EEDD 100%);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--red);text-decoration:none}
+
+  /* ---------- GOLD ORNAMENTS ---------- */
+  .ornament{
+    display:block;margin:0 auto;color:var(--gold);
+    opacity:.85;
+  }
+  .gold-line{
+    height:1px;border:0;
+    background:linear-gradient(90deg, transparent, var(--gold) 20%, var(--gold-light) 50%, var(--gold) 80%, transparent);
+    margin:0;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    text-align:center;
+    padding:54px 20px 30px;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse at center top, rgba(184,146,74,.08), transparent 60%),
+      linear-gradient(180deg, rgba(107,15,26,.04), transparent);
+    border-bottom:1px solid transparent;
+    border-image:linear-gradient(90deg,transparent,var(--gold),transparent) 1;
+  }
+  .hero::before,.hero::after{
+    content:"囍";
+    position:absolute;
+    color:var(--red);
+    opacity:.05;
+    font-size:clamp(80px,20vw,260px);
+    font-weight:900;
+    top:-40px;
+    line-height:1;
+    font-family:"Noto Serif SC","Songti SC",serif;
+  }
+  .hero::before{left:clamp(-30px,-2vw,-10px);transform:rotate(-8deg)}
+  .hero::after{right:clamp(-30px,-2vw,-10px);transform:rotate(8deg)}
+  .hero-corner{
+    position:absolute;width:90px;height:90px;color:var(--gold);
+    opacity:.7;pointer-events:none;
+  }
+  .hero-corner.tl{top:14px;left:14px}
+  .hero-corner.tr{top:14px;right:14px;transform:scaleX(-1)}
+  .hero-corner.bl{bottom:14px;left:14px;transform:scaleY(-1)}
+  .hero-corner.br{bottom:14px;right:14px;transform:scale(-1,-1)}
+  @media (max-width:640px){
+    .hero-corner{width:54px;height:54px}
+  }
+  .hero .inner{position:relative;z-index:1}
+  .hero .ribbon{
+    display:inline-block;
+    color:var(--gold-deep);
+    letter-spacing:.4em;
+    font-size:11px;
+    padding:5px 16px 5px 20px;
+    border:1px solid var(--gold);
+    border-radius:999px;
+    margin-bottom:20px;
+    background:linear-gradient(180deg,rgba(255,253,248,.9),rgba(234,217,180,.4));
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.5);
+  }
+  .hero h1{
+    font-family:"Noto Serif SC","Songti SC","SimSun",serif;
+    font-weight:600;
+    font-size:clamp(38px,7vw,68px);
+    margin:0 0 8px;
+    letter-spacing:.06em;
+    color:var(--red);
+    font-weight:900;
+    text-shadow:0 1px 0 rgba(184,146,74,.25);
+  }
+  .hero .names{
+    font-family:"Noto Serif SC","Songti SC",serif;
+    font-size:clamp(22px,4vw,36px);
+    font-weight:700;
+    color:var(--red);
+    letter-spacing:.15em;
+    margin-bottom:8px;
+  }
+  .hero .names .amp{
+    color:var(--gold);
+    font-size:1.2em;
+    margin:0 10px;
+    font-weight:400;
+  }
+  .hero .date{
+    font-family:"Noto Serif SC","Songti SC",serif;
+    font-size:clamp(14px,2.4vw,18px);
+    color:var(--ink-2);
+    letter-spacing:.3em;
+    margin-bottom:6px;
+  }
+  .hero .sub{
+    color:var(--gold-deep);
+    font-size:12px;
+    letter-spacing:.35em;
+  }
+  .hero .divider{
+    width:160px;height:14px;
+    margin:22px auto 0;position:relative;
+    display:flex;align-items:center;justify-content:center;gap:10px;
+  }
+  .hero .divider .line{
+    flex:1;height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold));
+  }
+  .hero .divider .line.r{
+    background:linear-gradient(90deg,var(--gold),transparent);
+  }
+  .hero .divider .gem{
+    width:8px;height:8px;background:var(--gold);
+    transform:rotate(45deg);
+    box-shadow:0 0 0 2px rgba(184,146,74,.2);
+  }
+
+  /* ---------- META BAR ---------- */
+  .meta{
+    max-width:920px;margin:24px auto 24px;padding:0 20px;
+    display:grid;grid-template-columns:repeat(5,1fr);gap:10px;
+  }
+  .meta .item{
+    position:relative;
+    background:linear-gradient(180deg,var(--card),#FFF8EC);
+    border:1px solid var(--gold-soft);
+    border-radius:6px;padding:14px 12px;text-align:center;
+    box-shadow:inset 0 0 0 1px rgba(184,146,74,.18), 0 2px 10px -6px rgba(74,10,18,.15);
+  }
+  .meta .item::before,.meta .item::after{
+    content:"";position:absolute;width:10px;height:10px;
+    border:1px solid var(--gold);
+  }
+  .meta .item::before{top:3px;left:3px;border-right:none;border-bottom:none}
+  .meta .item::after{bottom:3px;right:3px;border-left:none;border-top:none}
+  .meta .item .k{color:var(--gold-deep);font-size:11px;letter-spacing:.25em}
+  .meta .item .v{color:var(--red);font-size:15px;font-weight:600;margin-top:4px;font-family:"Noto Serif SC","Songti SC",serif}
+  @media (max-width:640px){
+    .meta{grid-template-columns:repeat(2,1fr)}
+  }
+
+  /* ---------- TABS ---------- */
+  .tabs-wrap{
+    position:sticky;top:0;z-index:10;
+    background:rgba(251,246,238,.94);
+    backdrop-filter:saturate(180%) blur(10px);
+    -webkit-backdrop-filter:saturate(180%) blur(10px);
+    border-bottom:1px solid transparent;
+    border-image:linear-gradient(90deg,transparent,var(--gold),transparent) 1;
+    box-shadow:0 1px 0 rgba(184,146,74,.15);
+  }
+  .tabs{
+    max-width:920px;margin:0 auto;
+    display:flex;gap:8px;overflow-x:auto;
+    padding:14px 20px;scrollbar-width:none;
+  }
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{
+    flex:0 0 auto;cursor:pointer;user-select:none;
+    padding:8px 16px;border-radius:4px;
+    font-size:13px;color:var(--ink-2);
+    background:var(--card);border:1px solid var(--gold-soft);
+    transition:all .2s ease;white-space:nowrap;
+    letter-spacing:.05em;
+  }
+  .tab:hover{border-color:var(--gold);color:var(--red)}
+  .tab.active{
+    background:linear-gradient(180deg,var(--red),var(--red-deep));
+    color:#FBE9C2;border-color:var(--gold);
+    box-shadow:0 4px 14px -4px rgba(74,10,18,.5), inset 0 0 0 1px rgba(212,179,115,.4);
+  }
+  .tab .dot{
+    display:inline-block;width:5px;height:5px;
+    background:var(--gold);margin-right:6px;vertical-align:middle;
+    transform:rotate(45deg);
+  }
+  .tab.active .dot{background:var(--gold-light)}
+
+  /* role card hint shown under tabs */
+  .role-hint{
+    max-width:920px;margin:0 auto;
+    padding:14px 20px 0;color:var(--ink-2);font-size:13px;
+  }
+  .role-hint b{color:var(--red-deep)}
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{
+    max-width:920px;margin:0 auto;padding:18px 20px 80px;
+    position:relative;
+  }
+  .phase-band{
+    margin:28px 0 14px;
+    display:flex;align-items:center;gap:12px;
+    position:relative;
+  }
+  .phase-band .ico{
+    flex:0 0 auto;width:18px;height:18px;color:var(--gold);
+  }
+  .phase-band .bar{
+    flex:1;height:1px;
+    background:linear-gradient(90deg,var(--gold) 0%,var(--gold-soft) 60%,transparent 100%);
+  }
+  .phase-band h2{
+    margin:0;font-size:15px;letter-spacing:.25em;
+    color:var(--red);font-weight:600;
+    font-family:"Noto Serif SC","Songti SC",serif;
+    padding:0 4px;
+  }
+  .phase-band .count{
+    color:var(--gold-deep);font-size:11px;letter-spacing:.15em;
+    border:1px solid var(--gold-soft);
+    padding:2px 8px;border-radius:999px;
+    background:#FFF8EC;
+  }
+
+  .row{
+    display:grid;grid-template-columns:96px 1fr;gap:14px;
+    align-items:stretch;margin-bottom:12px;
+  }
+  .time-col{
+    text-align:right;padding-top:14px;position:relative;
+  }
+  .time-col .start{
+    font-family:"Noto Serif SC","Songti SC",serif;
+    font-size:22px;font-weight:600;color:var(--red);
+    line-height:1.1;letter-spacing:.02em;
+  }
+  .time-col .end{
+    color:var(--muted);font-size:12px;margin-top:3px;
+    font-family:"SF Mono",ui-monospace,Menlo,monospace;
+  }
+  .time-col .dur{
+    display:inline-block;margin-top:7px;font-size:11px;
+    color:var(--gold-deep);background:#FFF8EC;
+    border:1px solid var(--gold-soft);
+    border-radius:999px;padding:2px 9px;
+  }
+
+  .card{
+    position:relative;background:var(--card);
+    border:1px solid var(--gold-soft);border-radius:6px;
+    padding:16px 18px;box-shadow:var(--shadow);
+  }
+  .card::before{
+    content:"";position:absolute;left:-8px;top:20px;
+    width:12px;height:12px;background:var(--card);
+    border:2px solid var(--gold);
+    transform:rotate(45deg);
+  }
+  /* gold inner border accent */
+  .card::after{
+    content:"";position:absolute;inset:3px;border-radius:4px;
+    border:1px solid rgba(184,146,74,.18);
+    pointer-events:none;
+  }
+  .card > *{position:relative;z-index:1}
+  .card .title-line{
+    display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+    margin-bottom:8px;padding-bottom:8px;
+    border-bottom:1px dashed var(--gold-soft);
+  }
+  .card .activity{
+    font-size:16px;font-weight:600;color:var(--red);
+    font-family:"Noto Serif SC","Songti SC",serif;
+    letter-spacing:.04em;
+  }
+  .badge{
+    display:inline-block;font-size:11px;line-height:1;
+    padding:5px 9px;border-radius:3px;letter-spacing:.08em;
+    background:linear-gradient(180deg,var(--red),var(--red-deep));
+    color:#FBE9C2;
+    box-shadow:inset 0 0 0 1px rgba(212,179,115,.35);
+  }
+  .badge.outfit{
+    background:linear-gradient(180deg,#FFF8EC,#F0DDB0);
+    color:var(--gold-deep);
+    border:1px solid var(--gold-soft);
+    box-shadow:none;
+  }
+
+  .summary{color:var(--ink-2);font-size:14px;white-space:pre-line}
+
+  .roles{
+    margin-top:12px;padding-top:12px;
+    border-top:1px solid transparent;
+    border-image:linear-gradient(90deg,transparent,var(--gold-soft),transparent) 1;
+    display:grid;grid-template-columns:repeat(2,1fr);gap:8px 14px;
+  }
+  @media (max-width:640px){
+    .roles{grid-template-columns:1fr}
+    .row{grid-template-columns:74px 1fr;gap:10px}
+    .time-col .start{font-size:18px}
+  }
+  .role{
+    display:flex;gap:8px;align-items:flex-start;font-size:13px;
+  }
+  .role .lbl{
+    flex:0 0 auto;color:var(--gold-deep);font-weight:600;
+    background:#FFF8EC;border:1px solid var(--gold-soft);
+    padding:2px 8px;border-radius:3px;
+    white-space:nowrap;font-size:12px;letter-spacing:.05em;
+  }
+  .role .txt{color:var(--ink-2);white-space:pre-line}
+  .role-spacer{display:block}
+
+  /* highlight role-specific card when filtered */
+  .card.focus{
+    border-color:var(--gold);
+    box-shadow:0 6px 28px -8px rgba(74,10,18,.4),
+               inset 0 0 0 1px rgba(212,179,115,.35);
+  }
+  .card.focus::after{border-color:var(--gold)}
+  .card.focus .focus-block{
+    margin-top:12px;padding:12px 14px;
+    background:
+      linear-gradient(180deg,rgba(107,15,26,.92),rgba(74,10,18,.95));
+    border:1px solid var(--gold);
+    color:#FBE9C2;font-size:14px;white-space:pre-line;
+    border-radius:4px;
+    box-shadow:inset 0 0 0 1px rgba(212,179,115,.3);
+    position:relative;
+  }
+  .card.focus .focus-block::before,
+  .card.focus .focus-block::after{
+    content:"";position:absolute;width:8px;height:8px;
+    border:1px solid var(--gold-light);
+  }
+  .card.focus .focus-block::before{top:3px;left:3px;border-right:none;border-bottom:none}
+  .card.focus .focus-block::after{bottom:3px;right:3px;border-left:none;border-top:none}
+  .card.focus .focus-block .lbl{
+    display:inline-block;font-size:11px;letter-spacing:.2em;
+    color:var(--red-deep);
+    background:linear-gradient(180deg,var(--gold-light),var(--gold));
+    padding:3px 10px;border-radius:3px;
+    margin-right:10px;vertical-align:middle;font-weight:600;
+  }
+  .card.dim{opacity:.4}
+
+  /* footer */
+  footer{
+    text-align:center;color:var(--gold-deep);font-size:12px;
+    padding:30px 20px 60px;letter-spacing:.4em;
+    font-family:"Noto Serif SC","Songti SC",serif;
+  }
+  .footer-orn{
+    display:flex;align-items:center;justify-content:center;gap:12px;
+    margin-bottom:10px;
+  }
+  .footer-orn .l{
+    width:60px;height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold));
+  }
+  .footer-orn .r{
+    width:60px;height:1px;
+    background:linear-gradient(90deg,var(--gold),transparent);
+  }
+  .footer-orn .c{color:var(--gold);font-size:14px}
+  .print-btn{
+    position:fixed;right:18px;bottom:18px;z-index:20;
+    background:linear-gradient(180deg,var(--red),var(--red-deep));
+    color:#FBE9C2;border:1px solid var(--gold);cursor:pointer;
+    border-radius:4px;padding:10px 18px;font-size:13px;letter-spacing:.1em;
+    box-shadow:0 8px 24px -6px rgba(74,10,18,.6),
+               inset 0 0 0 1px rgba(212,179,115,.4);
+  }
+
+  /* print */
+  @media print{
+    .tabs-wrap,.print-btn{display:none}
+    body{background:#fff}
+    .card{break-inside:avoid;box-shadow:none;border-color:#ccc}
+    .hero::before,.hero::after{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="hero-corner tl" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1">
+    <path d="M2 40 V2 H40" />
+    <path d="M8 30 V8 H30" opacity=".6"/>
+    <path d="M2 50 Q20 50 20 32 Q20 20 32 20 Q50 20 50 2" opacity=".7"/>
+    <circle cx="14" cy="14" r="2" fill="currentColor"/>
+    <circle cx="40" cy="40" r="3" fill="none"/>
+    <path d="M36 40 L40 36 L44 40 L40 44 Z" fill="currentColor" opacity=".5"/>
+  </svg>
+  <svg class="hero-corner tr" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1">
+    <path d="M2 40 V2 H40" />
+    <path d="M8 30 V8 H30" opacity=".6"/>
+    <path d="M2 50 Q20 50 20 32 Q20 20 32 20 Q50 20 50 2" opacity=".7"/>
+    <circle cx="14" cy="14" r="2" fill="currentColor"/>
+    <path d="M36 40 L40 36 L44 40 L40 44 Z" fill="currentColor" opacity=".5"/>
+  </svg>
+  <svg class="hero-corner bl" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1">
+    <path d="M2 40 V2 H40" />
+    <path d="M2 50 Q20 50 20 32 Q20 20 32 20 Q50 20 50 2" opacity=".7"/>
+    <circle cx="14" cy="14" r="2" fill="currentColor"/>
+  </svg>
+  <svg class="hero-corner br" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1">
+    <path d="M2 40 V2 H40" />
+    <path d="M2 50 Q20 50 20 32 Q20 20 32 20 Q50 20 50 2" opacity=".7"/>
+    <circle cx="14" cy="14" r="2" fill="currentColor"/>
+  </svg>
+  <div class="inner">
+    <span class="ribbon">良 辰 吉 时 · 与 你 相 伴</span>
+    <h1>婚礼当天行程</h1>
+    <div class="names">王泽元 <span class="amp">&</span> 周芳琳</div>
+    <div class="date">2026 年 5 月 30 日 · 农历四月十四</div>
+    <div class="divider">
+      <span class="line"></span>
+      <span class="gem"></span>
+      <span class="line r"></span>
+    </div>
+  </div>
+</header>
+
+<div class="meta">
+  <div class="item"><div class="k">接亲</div><div class="v">08:00 新郎接亲</div></div>
+  <div class="item"><div class="k">敬茶</div><div class="v">09:15 新人敬茶</div></div>
+  <div class="item"><div class="k">午宴</div><div class="v">11:10 娘家午宴</div></div>
+  <div class="item"><div class="k">仪式</div><div class="v">15:30 草坪仪式</div></div>
+  <div class="item"><div class="k">晚宴</div><div class="v">18:00 婚礼晚宴</div></div>
+</div>
+
+<div class="tabs-wrap">
+  <div class="tabs" id="tabs"></div>
+</div>
+<div class="role-hint" id="hint"></div>
+
+<main class="timeline" id="timeline"></main>
+
+<button class="print-btn" onclick="window.print()">🖨 打印 / 保存 PDF</button>
+
+<footer>
+  <div class="footer-orn"><span class="l"></span><span class="c">❖</span><span class="r"></span></div>
+  愿 白 头 偕 老 · 永 结 同 心
+</footer>
+
+<script>
+/* -------- DATA -------- */
+const ROLES = [
+  { key:"all",     name:"总览" },
+  { key:"couple",  name:"新人 (新郎/新娘)" },
+  { key:"groomFam",name:"男方父母 + 奶奶" },
+  { key:"brideKin",name:"女方亲友" },
+  { key:"groomKin",name:"男方亲友" },
+  { key:"video",   name:"摄像" },
+  { key:"photo",   name:"摄影" },
+  { key:"mc",      name:"司仪" },
+  { key:"car",     name:"车队" },
+];
+
+const ROLE_LABEL = {
+  couple:"新人", groomFam:"男方父母", brideKin:"女方亲友",
+  groomKin:"男方亲友", video:"摄像", photo:"摄影", mc:"司仪", car:"车队",
+  bestPair:"伴郎伴娘"
+};
+
+/* events: chronological */
+const EVENTS = [
+  { phase:"女方准备", activity:"准备 · 拜菩萨", start:"04:10", end:"05:00", dur:"50分钟",
+    summary:"路上 15m → 拜菩萨 15m → 路上 15m\n（新娘自己的行程）",
+    outfit:"晨袍",
+    roles:{ couple:"新娘出发去拜菩萨" }
+  },
+  { phase:"女方准备", activity:"化妆 1 · 造型 1", start:"05:00", end:"07:00", dur:"2 小时",
+    summary:"新娘化妆（第一套造型）",
+    roles:{
+      couple:"新娘化妆（造型 1）",
+      _sp1:"",
+      video:"6:30 之前到\n🚩 溪口酒店空镜 / 风景区空镜\n🚩 新娘晨袍、伴娘、化妆片段\n🚩 走廊、园林人物影像",
+      photo:"6:30 之前到\n🚩 拍房间空镜花絮\n🚩 拍摄化妆、晨袍"
+    }
+  },
+  { phase:"女方准备", activity:"晨袍拍摄", start:"07:10", end:"07:50", dur:"40分钟",
+    summary:"新娘晨袍组拍",
+    roles:{
+      couple:"新娘晨袍拍摄",
+      brideKin:"伴娘：7:00 起床吃饭，7:20 化妆\n父母：7:30 到酒店化妆",
+      video:"拍摄晨袍",
+      photo:"拍摄晨袍"
+    }
+  },
+  { phase:"女方准备", activity:"化妆 2 · 造型 2", start:"08:00", end:"08:35", dur:"35分钟",
+    summary:"新娘换装 + 换造型（30m）",
+    outfit:"中式礼服",
+    roles:{ couple:"换中式礼服 + 造型 2" }
+  },
+
+  { phase:"男方准备", activity:"新郎化妆", start:"07:00", end:"08:00", dur:"1 小时",
+    summary:"新郎、伴郎：7:10 起床吃饭、7:30 化妆",
+    roles:{
+      couple:"7:10 起床吃饭 → 7:30 化妆",
+      groomFam:"7:30 起床吃饭 → 7:50 化妆（婚房客厅）\n化完妆后可在房间里和摄影师拍点活动照",
+      groomKin:"伴郎 7:10 起床吃饭 → 7:30 化妆"
+    }
+  },
+  { phase:"男方准备", activity:"新郎拍摄", start:"08:00", end:"08:30", dur:"30分钟",
+    summary:"新郎、伴郎组拍",
+    roles:{ couple:"新郎拍摄", groomKin:"伴郎拍摄" }
+  },
+
+  { phase:"接亲 · 酒店", activity:"接亲 · 进场", start:"08:30", end:"08:35", dur:"5分钟",
+    summary:"准备好捧花，从室外慢慢进场，并通知新娘",
+    roles:{
+      couple:"新郎手持捧花进场",
+      groomFam:"在客厅准备",
+      brideKin:"姐姐、朋友在新娘房间里",
+      groomKin:"可在婚房客厅参观",
+      video:"🚩 接亲新娘特写（主机位）\n🚩 接亲新郎特写（副机位）",
+      photo:"🚩 始终新娘视角"
+    }
+  },
+  { phase:"接亲 · 酒店", activity:"接亲游戏 · 吃汤圆 · 合照", start:"08:35", end:"09:15", dur:"40分钟",
+    summary:"接亲游戏 1-2 个（20m）→ 吃汤圆（10m）→ 合照（10m）",
+    roles:{
+      couple:"参与游戏、吃汤圆、合照",
+      groomFam:"参与合照",
+      brideKin:"参与合照", groomKin:"参与合照",
+      video:"全程跟拍", photo:"全程跟拍"
+    }
+  },
+
+  { phase:"敬茶", activity:"酒店敬茶 · 亲友合影", start:"09:15", end:"09:45", dur:"30分钟",
+    summary:"【酒店】先女方父母 → 男方奶奶 → 男方父母（15m）\n→ 亲友拍照（15m）\n备注：拍摄时间尽量留足；敬茶环节由司仪主持话本",
+    roles:{
+      couple:"敬茶 → 合照",
+      groomFam:"敬茶 / 合照时间",
+      brideKin:"敬茶 / 合照时间\n10:00 姐姐接新娘爸爸 · 回娘家\n伴娘 B 负责递茶杯（敬茶过程）",
+      groomKin:"可在婚房客厅参观\n伴郎 A 主持敬茶",
+      video:"🚩 敬茶片段\n🚩 亲友合影片段",
+      photo:"🚩 敬茶片段\n🚩 亲友合影片段"
+    }
+  },
+
+  { phase:"车队 · 接亲出发", activity:"车队准备", start:"09:35", end:"09:45", dur:"10分钟",
+    summary:"9:20 车队到达酒店，伴郎 B 裱花\n9:45 准备新人出门",
+    roles:{
+      groomFam:"跟车",
+      groomKin:"伴郎裱花 · 跟随队伍去新娘娘家吃饭",
+      car:"9:20 车队到紫璋台，装饰车"
+    }
+  },
+  { phase:"车队 · 接亲出发", activity:"接亲 · 文昌阁拍照 · 赴娘家", start:"09:50", end:"10:50", dur:"60分钟",
+    summary:"上车，音响放鞭炮（5m）→ 路上（15m）\n→ 文昌阁拍照（视频两个单人 + 照片单人/合照，25m）\n→ 路上到达娘家饭局（15m）",
+    roles:{
+      couple:"接亲流程，文昌阁拍照",
+      car:"按行程行驶",
+      video:"🚩 上车片段（新人和父母）\n🚩 车辆行驶片段\n🚩 文昌阁片段",
+      photo:"🚩 上车片段（新人和父母）\n🚩 车辆行驶片段\n🚩 文昌阁片段"
+    }
+  },
+
+  { phase:"娘家午宴", activity:"准备 · 放鞭炮", start:"10:50", end:"11:10", dur:"20分钟",
+    summary:"娘家休息 10 分钟\n11:05 去服务中心，11:10 放鞭炮",
+    roles:{
+      couple:"娘家休息",
+      groomFam:"跟随队伍去新娘娘家吃饭",
+      brideKin:"跟随队伍去新娘娘家吃饭",
+      groomKin:"跟随队伍去新娘娘家吃饭",
+      video:"娘家片段稍微录点，随机",
+      photo:"娘家片段稍微录点，随机",
+      car:"休息"
+    }
+  },
+  { phase:"娘家午宴", activity:"娘家吃饭 · 敬酒", start:"11:10", end:"12:50", dur:"约 1.5 小时",
+    summary:"【娘家】溪口娘家吃饭（约 16 桌）\n新人吃饭（15m）→ 敬酒（40m）→ 休息\n陪同：伴郎、伴娘、姐姐、爸爸、妈妈、爸爸、妈妈",
+    roles:{
+      couple:"吃饭 15m → 敬酒 40m → 休息",
+      groomFam:"娘家吃饭",
+      brideKin:"娘家吃饭",
+      groomKin:"娘家吃饭\n伴郎 A、B 负责拿酒水",
+      video:"随机（吃饭为主，可以不拍）",
+      photo:"随机（吃饭为主，可以不拍）",
+      car:"吃饭"
+    }
+  },
+
+  { phase:"车队 · 回酒店", activity:"娘家 → 酒店", start:"13:10", end:"13:30", dur:"20分钟",
+    summary:"【娘家】车队送回酒店（约 20m）",
+    roles:{
+      couple:"返回酒店",
+      groomFam:"自由安排",
+      brideKin:"自由安排",
+      groomKin:"自由安排",
+      video:"🇺🇳 车辆行驶片段（拍过了就行）",
+      photo:"🇺🇳 车辆行驶片段（拍过了就行）",
+      car:"13:10 从溪口宴席 → 酒店 · 结束"
+    }
+  },
+
+  { phase:"酒店 · 休整", activity:"休息", start:"13:30", end:"14:00", dur:"30分钟",
+    summary:"短暂休息，准备下午草坪仪式",
+    roles:{
+      couple:"自由安排",
+      groomFam:"自由安排", brideKin:"自由安排", groomKin:"自由安排",
+      video:"随机", photo:"随机"
+    }
+  },
+
+  { phase:"草坪仪式", activity:"换妆 · 拍摄空镜", start:"14:00", end:"15:00", dur:"1 小时",
+    outfit:"婚纱",
+    summary:"14:00 新娘换婚纱（约 0.5h）\n14:00 之前婚庆布置完全",
+    roles:{
+      couple:"换婚纱 → 拍摄",
+      groomFam:"自由安排", brideKin:"自由安排", groomKin:"自由安排",
+      video:"🚩 草坪空镜（多点）",
+      photo:"🚩 草坪空镜（多点）"
+    }
+  },
+  { phase:"草坪仪式", activity:"亲友入场", start:"15:10", end:"15:30", dur:"20分钟",
+    summary:"新人后台等待，亲友陆续入场",
+    roles:{
+      couple:"后台等待",
+      groomFam:"亲友入场、拍照",
+      brideKin:"亲友入场、拍照",
+      groomKin:"亲友入场、拍照",
+      video:"🚩 亲友片段（有意思的挑着拍）",
+      photo:"🚩 亲友片段（有意思的挑着拍）"
+    }
+  },
+  { phase:"草坪仪式", activity:"结婚仪式 · 合影", start:"15:30", end:"16:30", dur:"1 小时",
+    summary:"酒店草坪仪式（含走台、讲话、放烟花等约 40m）→ 合影（15m）",
+    roles:{
+      couple:"主仪式 → 合影",
+      groomFam:"坐第 1、2 排",
+      brideKin:"坐第 1、2 排\n伴娘 A 致词，交接捧花",
+      groomKin:"参加仪式\n伴郎 B 燃放烟花",
+      video:"🚩 仪式片段（最好是全程）",
+      photo:"🚩 仪式片段\n🚩 新人特写、亲友特写、大场景",
+      mc:"演讲 + 配乐\n亲吻处放烟花"
+    }
+  },
+  { phase:"草坪仪式", activity:"亲友游园", start:"16:30", end:"17:30", dur:"1 小时",
+    summary:"游园（60 分钟）",
+    roles:{
+      groomFam:"自由安排 / 游园",
+      brideKin:"自由安排 / 游园",
+      groomKin:"自由安排 / 游园",
+      video:"随机", photo:"随机"
+    }
+  },
+
+  { phase:"酒店迎宾", activity:"新娘换装", start:"16:30", end:"17:00", dur:"30分钟",
+    summary:"新娘换敬酒服",
+    outfit:"敬酒服",
+    roles:{
+      couple:"新娘换敬酒服",
+      groomFam:"自由安排", brideKin:"自由安排", groomKin:"自由安排"
+    }
+  },
+  { phase:"酒店迎宾", activity:"晚宴空镜拍摄", start:"17:00", end:"17:30", dur:"30分钟",
+    summary:"新郎新娘拍晚宴照片视频",
+    roles:{
+      couple:"配合拍照、拍视频",
+      groomFam:"自由安排", brideKin:"自由安排", groomKin:"自由安排",
+      video:"新郎新娘晚宴空镜",
+      photo:"新郎新娘晚宴空镜"
+    }
+  },
+  { phase:"酒店迎宾", activity:"迎宾", start:"17:30", end:"18:00", dur:"30分钟",
+    summary:"亲友 17:40 开始入场\n新郎新娘门口迎宾",
+    roles:{
+      couple:"门口迎宾",
+      groomFam:"17:40 开始入场",
+      brideKin:"17:40 开始入场",
+      groomKin:"17:40 开始入场",
+      video:"🚩 亲友片段（有意思）",
+      photo:"🚩 亲友片段（有意思）"
+    }
+  },
+
+  { phase:"酒店晚宴", activity:"开场致辞", start:"18:00", end:"18:30", dur:"30分钟",
+    summary:"【酒店】晚宴 16 桌\n开场致辞，由司仪主持",
+    roles:{
+      couple:"上台致辞",
+      groomFam:"亲友吃席",
+      video:"拍完开场即可",
+      photo:"拍完开场即可",
+      mc:"开席暖场 + 主人致辞"
+    }
+  },
+  { phase:"酒店晚宴", activity:"吃饭 + 敬酒", start:"18:30", end:"20:00", dur:"约 1.5 小时",
+    summary:"宾客吃饭 → 新人开始敬酒",
+    roles:{
+      couple:"逐桌敬酒",
+      groomFam:"用餐",
+      brideKin:"用餐",
+      groomKin:"用餐\n伴郎 A、B 负责拿酒水"
+    }
+  }
+];
+
+/* -------- RENDER -------- */
+const tabsEl = document.getElementById("tabs");
+const timelineEl = document.getElementById("timeline");
+const hintEl = document.getElementById("hint");
+let currentRole = "all";
+
+function buildTabs(){
+  tabsEl.innerHTML = "";
+  ROLES.forEach(r=>{
+    const btn = document.createElement("div");
+    btn.className = "tab" + (r.key===currentRole?" active":"");
+    btn.innerHTML = `<span class="dot"></span>${r.name}`;
+    btn.onclick = ()=>{ currentRole = r.key; render(); };
+    tabsEl.appendChild(btn);
+  });
+}
+
+function renderHint(){
+  if(currentRole==="all"){
+    hintEl.innerHTML = `点击上方标签，可只看 <b>某个人 / 某个组</b> 的行程；红色高亮卡片就是该角色这一刻要做的事。`;
+  } else {
+    const name = ROLES.find(r=>r.key===currentRole).name;
+    const focusedCount = EVENTS.filter(e=>e.roles && e.roles[currentRole]).length;
+    hintEl.innerHTML = `当前视图：<b>${name}</b> · 共 ${focusedCount} 项专属任务，其余事项已淡化处理。`;
+  }
+}
+
+function renderTimeline(){
+  timelineEl.innerHTML = "";
+  let lastPhase = "";
+  EVENTS.forEach((ev,i)=>{
+    if(ev.phase !== lastPhase){
+      const band = document.createElement("div");
+      band.className = "phase-band";
+      const cnt = EVENTS.filter(e=>e.phase===ev.phase).length;
+      band.innerHTML = `
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M12 2 L14 9 L21 10 L16 14 L18 21 L12 17 L6 21 L8 14 L3 10 L10 9 Z" opacity=".25"/>
+          <circle cx="12" cy="12" r="3" fill="currentColor" opacity=".8"/>
+        </svg>
+        <h2>${ev.phase}</h2>
+        <span class="bar"></span>
+        <span class="count">${cnt} 环</span>`;
+      timelineEl.appendChild(band);
+      lastPhase = ev.phase;
+    }
+    const row = document.createElement("div");
+    row.className = "row";
+
+    const focusText = currentRole!=="all" && ev.roles && ev.roles[currentRole];
+    const isFocus = !!focusText;
+    const isDim = currentRole!=="all" && !isFocus;
+
+    let rolesHtml = "";
+    if(currentRole === "all" && ev.roles){
+      const items = Object.entries(ev.roles).map(([k,v])=>{
+        if(k.startsWith('_')) return `<div class="role-spacer"></div>`;
+        return `<div class="role"><span class="lbl">${ROLE_LABEL[k]||k}</span><span class="txt">${v}</span></div>`;
+      }).join("");
+      if(items) rolesHtml = `<div class="roles">${items}</div>`;
+    }
+    let focusHtml = "";
+    if(isFocus){
+      focusHtml = `<div class="focus-block"><span class="lbl">你要做</span>${focusText}</div>`;
+    }
+    const outfitBadge = ev.outfit ? `<span class="badge outfit">服装：${ev.outfit}</span>` : "";
+
+    row.innerHTML = `
+      <div class="time-col">
+        <div class="start">${ev.start}</div>
+        <div class="end">— ${ev.end}</div>
+        <div class="dur">${ev.dur}</div>
+      </div>
+      <div class="card ${isFocus?'focus':''} ${isDim?'dim':''}">
+        <div class="title-line">
+          <span class="badge">${ev.phase}</span>
+          <span class="activity">${ev.activity}</span>
+          ${outfitBadge}
+        </div>
+        <div class="summary">${ev.summary||""}</div>
+        ${focusHtml}
+        ${rolesHtml}
+      </div>
+    `;
+    timelineEl.appendChild(row);
+  });
+}
+
+function render(){ buildTabs(); renderHint(); renderTimeline(); }
+render();
+</script>
+</body>
+</html>
