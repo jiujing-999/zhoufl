@@ -4,7 +4,14 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>5月30日 · 婚礼当天行程</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.font.im">
 <style>
+  /* 字体内嵌：优先 Google Fonts（海外），失败则降级到 font.im 国内镜像 */
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.font.im/css?family=Noto+Serif+SC:400,500,600,700,900|Noto+Sans+SC:400,500,600,700&display=swap');
+
   :root{
     --red:#6B0F1A;          /* 主暗红 */
     --red-deep:#4A0A12;     /* 更深 */
@@ -26,7 +33,7 @@
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
   body{
-    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    font-family:"Noto Sans SC",-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
     color:var(--ink);
     background:
       radial-gradient(900px 500px at 50% -200px, rgba(107,15,26,.18) 0%, transparent 70%),
@@ -51,7 +58,7 @@
   .hero{
     position:relative;
     text-align:center;
-    padding:54px 20px 30px;
+    padding:54px 20px 36px;
     overflow:hidden;
     background:
       radial-gradient(ellipse at center top, rgba(184,146,74,.08), transparent 60%),
@@ -152,8 +159,13 @@
 
   /* ---------- META BAR ---------- */
   .meta{
-    max-width:920px;margin:24px auto 24px;padding:0 20px;
-    display:grid;grid-template-columns:repeat(5,1fr);gap:10px;
+    max-width:720px;margin:24px auto 0;padding:0 20px;
+    display:flex;flex-wrap:wrap;gap:10px;
+    position:relative;z-index:1;
+  }
+  .meta .item{
+    flex:1 1 calc((100% - 20px) / 3);  /* 每行3个；最后一行2个时由 flex-grow 撑满 */
+    min-width:0;
   }
   .meta .item{
     position:relative;
@@ -321,10 +333,55 @@
     border-image:linear-gradient(90deg,transparent,var(--gold-soft),transparent) 1;
     display:grid;grid-template-columns:repeat(2,1fr);gap:8px 14px;
   }
-  @media (max-width:640px){
-    .roles{grid-template-columns:1fr}
-    .row{grid-template-columns:74px 1fr;gap:10px}
-    .time-col .start{font-size:18px}
+  @media (max-width:680px){
+    /* hero */
+    .hero{padding:36px 14px 28px}
+    .hero .names{font-size:clamp(18px,5.5vw,28px)}
+    .hero .divider{width:120px}
+
+    /* meta: 移动端同样首行3 + 末行2撑满 */
+    .meta{
+      padding:0 14px;
+      margin:20px 0 0;
+    }
+    .meta .item{padding:10px 8px}
+    .meta .item .v{font-size:13px}
+
+    /* timeline */
+    .timeline{padding:10px 12px 60px}
+    .phase-band{margin:18px 0 8px}
+    .phase-band h2{font-size:13px;letter-spacing:.15em}
+
+    /* row & time: 时间移到卡片上方，左侧紧凑 + 右侧pill自适应 */
+    .row{grid-template-columns:1fr;gap:0}
+    .time-col{
+      padding:7px 14px;
+      display:flex;align-items:center;gap:6px;
+      background:linear-gradient(180deg,rgba(107,15,26,.04),rgba(184,146,74,.07));
+      border:1px solid var(--gold-soft);border-bottom:none;
+      border-radius:4px 4px 0 0;
+    }
+    .time-col .start{font-size:15px;font-weight:600;color:var(--red);margin:0;letter-spacing:.02em;line-height:1.2;font-family:"SF Mono",ui-monospace,Menlo,monospace}
+    .time-col .end{font-size:15px;font-weight:600;color:var(--red);margin:0;line-height:1.2;font-family:"SF Mono",ui-monospace,Menlo,monospace}
+    .time-col .dur{font-size:10px;padding:2px 9px;margin:0;margin-left:auto;flex-shrink:0}
+    .card::before{display:none}  /* 不再需要左侧连接菱形 */
+
+    /* card */
+    .card{padding:12px 12px;border-radius:0 0 4px 4px}
+    .card .activity{font-size:14px}
+    .badge{font-size:10px;padding:4px 7px}
+
+    /* roles: 单列 */
+    .roles{grid-template-columns:1fr;gap:6px}
+    .role-spacer{display:none}   /* 单列不需要占位 */
+    .role{font-size:12px}
+    .role .lbl{font-size:11px;padding:2px 6px}
+
+    /* focus block */
+    .card.focus .focus-block{font-size:13px;padding:8px 10px}
+
+    /* 角色提示 */
+    .role-hint{font-size:12px;padding:10px 14px 0}
   }
   .role{
     display:flex;gap:8px;align-items:flex-start;font-size:13px;
@@ -390,18 +447,9 @@
     background:linear-gradient(90deg,var(--gold),transparent);
   }
   .footer-orn .c{color:var(--gold);font-size:14px}
-  .print-btn{
-    position:fixed;right:18px;bottom:18px;z-index:20;
-    background:linear-gradient(180deg,var(--red),var(--red-deep));
-    color:#FBE9C2;border:1px solid var(--gold);cursor:pointer;
-    border-radius:4px;padding:10px 18px;font-size:13px;letter-spacing:.1em;
-    box-shadow:0 8px 24px -6px rgba(74,10,18,.6),
-               inset 0 0 0 1px rgba(212,179,115,.4);
-  }
-
   /* print */
   @media print{
-    .tabs-wrap,.print-btn{display:none}
+    .tabs-wrap{display:none}
     body{background:#fff}
     .card{break-inside:avoid;box-shadow:none;border-color:#ccc}
     .hero::before,.hero::after{display:none}
@@ -447,15 +495,14 @@
       <span class="line r"></span>
     </div>
   </div>
+  <div class="meta">
+    <div class="item"><div class="k">08:30</div><div class="v">接亲</div></div>
+    <div class="item"><div class="k">09:15</div><div class="v">敬茶</div></div>
+    <div class="item"><div class="k">11:10</div><div class="v">午宴</div></div>
+    <div class="item"><div class="k">15:30</div><div class="v">仪式</div></div>
+    <div class="item"><div class="k">18:00</div><div class="v">晚宴</div></div>
+  </div>
 </header>
-
-<div class="meta">
-  <div class="item"><div class="k">接亲</div><div class="v">08:00 新郎接亲</div></div>
-  <div class="item"><div class="k">敬茶</div><div class="v">09:15 新人敬茶</div></div>
-  <div class="item"><div class="k">午宴</div><div class="v">11:10 娘家午宴</div></div>
-  <div class="item"><div class="k">仪式</div><div class="v">15:30 草坪仪式</div></div>
-  <div class="item"><div class="k">晚宴</div><div class="v">18:00 婚礼晚宴</div></div>
-</div>
 
 <div class="tabs-wrap">
   <div class="tabs" id="tabs"></div>
@@ -464,7 +511,6 @@
 
 <main class="timeline" id="timeline"></main>
 
-<button class="print-btn" onclick="window.print()">🖨 打印 / 保存 PDF</button>
 
 <footer>
   <div class="footer-orn"><span class="l"></span><span class="c">❖</span><span class="r"></span></div>
@@ -745,7 +791,7 @@ function buildTabs(){
 
 function renderHint(){
   if(currentRole==="all"){
-    hintEl.innerHTML = `点击上方标签，可只看 <b>某个人 / 某个组</b> 的行程；红色高亮卡片就是该角色这一刻要做的事。`;
+    hintEl.innerHTML = `可切换对应人物的行程事项`;
   } else {
     const name = ROLES.find(r=>r.key===currentRole).name;
     const focusedCount = EVENTS.filter(e=>e.roles && e.roles[currentRole]).length;
